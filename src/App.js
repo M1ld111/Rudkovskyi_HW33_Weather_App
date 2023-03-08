@@ -27,7 +27,8 @@ function App() {
         placeholder='Enter Location'
         type="text" />
       </div>
-      <div className="container">
+      {data.name !== undefined &&
+        <div className="container">
         <div className="top">
           <div className="left">
             <div className="location">
@@ -43,11 +44,11 @@ function App() {
           </div>
           <div className="right">
             <div className="wind">
-              <p className='bold'>{data.wind.speed} m/h</p>
+              {data.wind ? <p className='bold'>{data.wind.speed} m/h</p> : null}
               <p>Wind Speed</p>
             </div>
             <div className="wind-direction">
-              <p className="bold">{data.wind.deg}°</p>
+             {data.wind ? <p className="bold">{data.wind.deg}°</p> : null}
               <p>Wind Direction</p>
             </div>
           </div>
@@ -63,6 +64,7 @@ function App() {
           </div>
         </div>
       </div>
+      }
     </div>
   );
 }
